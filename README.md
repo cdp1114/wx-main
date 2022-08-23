@@ -1,5 +1,1 @@
-# wx
-微信的定时发送消息
-
-怎么操作的看这个连接
-https://www.yuque.com/shifeng-wl7di/bbpx3m/ipwdbt
+自行准备微信服务号，本项目只提供后端源码，模板代码自行解决
