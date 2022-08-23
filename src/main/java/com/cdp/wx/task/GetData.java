@@ -1,10 +1,7 @@
-package com.lyd.wx.task;
+package com.cdp.wx.task;
 
 import com.alibaba.fastjson.JSON;
-import com.lyd.wx.pojo.AccessToken;
-import com.lyd.wx.pojo.Content;
-import com.lyd.wx.pojo.MyWx;
-import com.lyd.wx.pojo.Weather;
+import com.cdp.wx.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * 描述:
  *
- * @author liyadong
+ * @author cdp
  * @create 2022-08-22-16:17-周一
  */
 @Component
@@ -52,4 +49,16 @@ public class GetData {
         System.out.println(weather);
         return weather;
     }
+    //随机一句
+    public String getWords(){
+        String url = "https://api.shadiao.pro/chp";
+        String forObject = restTemplate.getForObject(url, String.class);
+        RandomData randomData = JSON.parseObject(forObject, RandomData.class);
+        RandomText randomText = randomData.getData();
+        System.out.println(randomText.getText());
+        return randomText.getText();
+    }
+
+
+
 }

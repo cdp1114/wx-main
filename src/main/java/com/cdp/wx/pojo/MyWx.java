@@ -1,4 +1,4 @@
-package com.lyd.wx.pojo;
+package com.cdp.wx.pojo;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 描述:
  *
- * @author liyadong
+ * @author cdp
  * @create 2022-08-22-13:06-周一
  */
 @Component

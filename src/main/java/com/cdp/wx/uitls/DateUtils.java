@@ -1,4 +1,4 @@
-package com.lyd.wx.uitls;
+package com.cdp.wx.uitls;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 描述:
  *
- * @author liyadong
+ * @author cdp
  * @create 2022-08-22-15:12-周一
  */
 public class DateUtils {

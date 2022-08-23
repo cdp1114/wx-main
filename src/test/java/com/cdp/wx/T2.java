@@ -1,9 +1,13 @@
-package com.lyd.wx.task;
+package com.cdp.wx;
 
-import com.lyd.wx.pojo.*;
-import com.lyd.wx.uitls.DateUtils;
+import com.alibaba.fastjson.JSON;
+import com.cdp.wx.pojo.*;
+import com.cdp.wx.uitls.DateUtils;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
@@ -12,21 +16,61 @@ import java.text.ParseException;
  * 描述:
  *
  * @author liyadong
- * @create 2022-08-22-16:21-周一
+ * @create 2022-08-22-15:52-周一
  */
-@Component
-public class Send {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class T2 {
+
     @Autowired
     RestTemplate restTemplate;
     @Autowired
     MyWx wx;
+    @Test
+    public void everydayWx() throws ParseException {
+        String url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+wx.getAppID()+"&secret="+wx.getAppsecret();
+        AccessToken accessToken = restTemplate.getForObject(url, AccessToken.class);
+        System.out.println(accessToken);
+        //获取每日一句
+        Content content = everydaySentence();
+        //获取天气
+        Weather weather = weather();
+        //给设定的用户循环发送
+//        for(String uid:wx.getUsers()){
+//
+//        }
+        //send1(accessToken.getAccess_token(),weather,"ohdhc5qNutEtYupmzRIs8JFnA9fU");
+        //send2(accessToken.getAccess_token(),"ohdhc5qNutEtYupmzRIs8JFnA9fU");
+        send3(accessToken.getAccess_token(),"ohdhcz8JFnA9fU","有没有在学习啊，查岗","#74ebd5",null,null,null,null);
+    }
+    /**
+     * 每日一句
+     */
+    public Content everydaySentence(){
+        String url = "http://open.iciba.com/dsapi/";
+        String forObject = restTemplate.getForObject(url, String.class);
+        Content content = JSON.parseObject(forObject, Content.class);
+        System.out.println(content);
+        return content;
+    }
+
+    /**
+     * 天气详情
+     */
+    public Weather weather(){
+        String url="https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=43656176&appsecret=I42og6Lm&ext=&cityid="+wx.getCityid()+"&city=";
+        String forObject = restTemplate.getForObject(url, String.class);
+        Weather weather = JSON.parseObject(forObject, Weather.class);
+        System.out.println(weather);
+        return weather;
+    }
     /**
      * 发送天气数据
      * @param token
      * @param w
      * @throws ParseException
      */
-    public void send1(String token, Weather w, String userid) throws ParseException {
+    public void send1(String token,Weather w,String userid) throws ParseException {
         String url="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+token;
 
         String c1="#fdcbf1";
@@ -98,7 +142,6 @@ public class Send {
         String s = restTemplate.postForObject(url, sendJson, String.class);
         System.out.println(s);
     }
-
     /**
      * 事件提醒
      * 可以设置三句话，不同颜色，t文本，c颜色

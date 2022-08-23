@@ -1,4 +1,4 @@
-package com.lyd.wx.pojo;
+package com.cdp.wx.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 描述:
  *
- * @author liyadong
+ * @author cdp
  * @create 2022-08-22-2:30-周一
  */
 @Data

@@ -1,18 +1,16 @@
-package com.lyd.wx;
+package com.cdp.wx;
 
 import com.alibaba.fastjson.JSON;
-import com.lyd.wx.pojo.*;
+import com.cdp.wx.pojo.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
