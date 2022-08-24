@@ -38,7 +38,7 @@ public class WxTask {
         }
     }
 
-        @Scheduled(cron="1/10 * * * * ?")
+    @Scheduled(cron = "1/10 * * * * ?")
     public void weatherWx2() throws ParseException {
 //        获取天气
         Weather weather = getData.weather();
@@ -47,7 +47,7 @@ public class WxTask {
         String words = getData.getWords();
         //给设定的用户循环发送
         for (String uid : wx.getUsers()) {
-            send.send1(token, weather,words, uid);
+            send.send1(token, weather, words, uid);
         }
         //获取天气
 //        Weather weather = getData.weather();

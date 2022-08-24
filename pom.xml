@@ -9,7 +9,7 @@
         <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lyd.wx</groupId>
+    <groupId>com.cdp.wx</groupId>
     <artifactId>wx</artifactId>
     <version>1.1</version>
 
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.80</version>
+            <version>1.2.83</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
