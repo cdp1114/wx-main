@@ -92,7 +92,7 @@ public class WxTask {
         //给设定的用户循环发送
         for (String uid : wx.getUsers()) {
             send.send3(token, uid,
-                    "天干物燥ヾ(≧▽≦*)o记得喝水水哦", "#ffb199",
+                    "天干物燥ヾ(≧▽≦*)o记得喝水哦", "#ffb199",
                     words, "#fdcbf1", null, null);
         }
     }
