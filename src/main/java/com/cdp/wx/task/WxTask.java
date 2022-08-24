@@ -82,7 +82,7 @@ public class WxTask {
     }
 
     //在这个时间点提醒喝水
-    @Scheduled(cron = "0 0 10,13,14,15,16,17,18,19,20,21,22,23 * * ?")
+    @Scheduled(cron = "0 0 10,13,16,19,22 * * ?")
     public void drinkwaterWx() {
         //获取天气
 //        Weather weather = getData.weather();
